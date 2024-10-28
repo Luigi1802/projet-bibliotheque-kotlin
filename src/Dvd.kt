@@ -1,10 +1,11 @@
 /**
  * Classe DVD, hérite de Media avec en plus une durée et un genre
  * Emprunt et retour possible
+ * Durée attendue en secondes
  */
 class Dvd : Media {
     // Attributs
-    private var duree: Int = 0
+    private var duree: Int = 0 // Durée attendue en secondes
     private var genre: String = ""
     // Constructeur
     constructor(titre: String, dateDeParution: String, duree: Int, genre: String) : super(titre, dateDeParution) {
@@ -13,7 +14,7 @@ class Dvd : Media {
     }
     // méthode d'affichage
     override fun afficher() {
-        println("- DVD : Titre = '$titre', Date de parution = '$dateDeParution', Durée = $duree s, Genre = '$genre'")
+        println("- DVD : Titre = '$titre', Date de parution = '$dateDeParution', Durée = ${afficherDuree(duree)}, Genre = '$genre'")
     }
     // méthode d'emprunt
     override fun emprunter(): Boolean {
@@ -43,7 +44,7 @@ class Dvd : Media {
     override fun consulter(): Boolean {
         // Vérification de la disponibilité
         if (!estEmprunte) {
-            println("Le DVD '$titre' ($dateDeParution) de $duree secondes (genre '$genre') est consulté sur place.")
+            println("Le DVD '$titre' ($dateDeParution) de ${afficherDuree(duree)} secondes (genre '$genre') est consulté sur place.")
             return true
         } else {
             println("Le DVD '$titre' est emprunté et ne peut donc pas être consulté pour l'instant.")

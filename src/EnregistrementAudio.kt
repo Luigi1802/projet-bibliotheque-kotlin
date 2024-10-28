@@ -1,10 +1,11 @@
 /**
  * Classe EnregistrementAudio, hérite de Media avec en plus une duree et un genre
  * Emprunt et retour possible
+ * Durée attendue en secondes
  */
 class EnregistrementAudio : Media {
     // Attributs
-    private var duree: Int = 0
+    private var duree: Int = 0 // Durée attendue en secondes
     private var genre: String = ""
     // Constructeur
     constructor(titre: String, dateDeParution: String, duree: Int, genre: String) : super(titre, dateDeParution) {
@@ -13,7 +14,7 @@ class EnregistrementAudio : Media {
     }
     // méthode d'affichage
     override fun afficher() {
-        println("- Enregistrement audio : Titre = '$titre', Date de parution = '$dateDeParution', Durée = $duree s, Genre = '$genre'")
+        println("- Enregistrement audio : Titre = '$titre', Date de parution = '$dateDeParution', Durée = ${afficherDuree(duree)}, Genre = '$genre'")
     }
     // méthode d'emprunt
     override fun emprunter(): Boolean {
@@ -43,7 +44,7 @@ class EnregistrementAudio : Media {
     override fun consulter(): Boolean {
         // Vérification de la disponibilité
         if (!estEmprunte) {
-            println("L'enregistrement audio '$titre' ($dateDeParution) de $duree secondes (genre '$genre') est consulté sur place.")
+            println("L'enregistrement audio '$titre' ($dateDeParution) de ${afficherDuree(duree)} (genre '$genre') est consulté sur place.")
             return true
         } else {
             println("L'enregistrement audio '$titre' est emprunté et ne peut donc pas être consulté pour l'instant.")

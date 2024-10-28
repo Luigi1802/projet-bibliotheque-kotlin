@@ -1,7 +1,7 @@
 fun main() {
     // Création de la bibliothèque
     val bibliotheque = Bibliotheque()
-    // Création des médias et ajout à la bibliothèque
+    // Création des médias et ajout à la bibliothèque (format de date attendu : ISO 8601 (YYYY-MM-DD))
     val magazine = Magazine("National Geographic", "2024-10-28", "18")
     val journal = Journal("Le Monde", "2024-10-28", "quotidienne")
     val enregistrementAudio = EnregistrementAudio("Beethoven - Symphonie No.9", "1967-01-01", 960, "Musique classique")
